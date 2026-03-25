@@ -20,8 +20,9 @@ Chuỗi bài tập ngắn, làm trên cluster thật. Giả định bạn đã q
 | 5 | Route TLS, Ingress | [lab-05-route-tls-ingress.md](lab-05-route-tls-ingress.md) |
 | 6 | Quan sát cluster, Operators, troubleshooting | [lab-06-observe-operators-debug.md](lab-06-observe-operators-debug.md) |
 | 7 | NetworkPolicy (tuỳ CNI) | [lab-07-networkpolicy.md](lab-07-networkpolicy.md) |
+| 8 | OperatorHub / OLM — cài operator từ catalog | [lab-08-operatorhub-olm.md](lab-08-operatorhub-olm.md) |
 
-Làm **theo thứ tự** từ 1 → 7 hoặc chọn bài theo nhu cầu; lab sau có thể dùng kỹ năng từ lab trước.
+Làm **theo thứ tự** từ 1 → 8 hoặc chọn bài theo nhu cầu; lab sau có thể dùng kỹ năng từ lab trước. Lab **8** bổ sung chi tiết OperatorHub so với phần quan sát OLM trong lab **6**.
 
 ## Sau mỗi bài
 

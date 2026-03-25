@@ -30,7 +30,7 @@ oc get csv -A | head -30
 oc get subscriptions -A | head -20
 ```
 
-Trên **Console**: OperatorHub → chọn một operator → xem tab **YAML** Subscription (không bắt buộc cài nếu policy không cho).
+Trên **Console**: OperatorHub → chọn một operator → xem tab **YAML** Subscription (không bắt buộc cài nếu policy không cho). **Lab cài đặt chi tiết từ Hub / OLM:** [lab-08-operatorhub-olm.md](lab-08-operatorhub-olm.md).
 
 ## 6.4 Events và mô tả object
 

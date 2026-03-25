@@ -1,0 +1,28 @@
+; db.mbfs.vn — zone gốc mbfs.vn (BIND)
+; Wildcard: <bất-kỳ>.mbfs.vn -> VIP Ingress HAProxy / OpenShift Router
+; Copy lên bastion: ví dụ /etc/named/zones/db.mbfs.vn
+;
+; Tham chiếu VIP trong lab: Ingress 10.1.34.11, NS/DNS 10.1.34.2
+; Điều chỉnh SOA email, serial, IP nếu môi trường khác.
+
+$TTL 604800
+@       IN  SOA ns1.ocp01.mbfs.vn. contact.ocp01.mbfs.vn. (
+                2025032501   ; Serial: YYYYMMDDnn — tăng mỗi lần sửa zone
+                604800       ; Refresh (1w)
+                86400        ; Retry (1d)
+                2419200      ; Expire (4w)
+                604800 )     ; Negative cache TTL
+
+@               IN  NS     ns1.ocp01.mbfs.vn.
+
+; Glue: bắt buộc khi NS nằm ngoài zone mbfs.vn
+ns1.ocp01.mbfs.vn.    IN  A   10.1.34.2
+
+; Delegation — *.ocp01.mbfs.vn do zone db.ocp01.mbfs.vn (+ zone apps nếu có) trả lời
+ocp01.mbfs.vn.        IN  NS   ns1.ocp01.mbfs.vn.
+
+; Mọi hostname một cấp: ten-app.mbfs.vn -> Ingress OCP
+*                     IN  A   10.1.34.11
+
+; Tùy chọn: apex mbfs.vn (wildcard * KHÔNG áp cho @)
+; @       IN  A   10.1.34.11
